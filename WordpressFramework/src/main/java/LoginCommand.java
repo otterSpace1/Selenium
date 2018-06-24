@@ -18,9 +18,11 @@ public class LoginCommand {
 
     public void Login() {
         WebElement loginInput = Driver.Instance.findElement(By.id("user_login"));
+        loginInput.click();
         loginInput.sendKeys(userName);
 
         WebElement passInput = Driver.Instance.findElement(By.id("user_pass"));
+        passInput.clear();
         passInput.sendKeys(pass);
 
         WebElement loginButton = Driver.Instance.findElement(By.id("wp-submit"));

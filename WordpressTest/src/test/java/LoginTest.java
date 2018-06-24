@@ -12,7 +12,7 @@ public class LoginTest {
         LoginPage.GoTo();
         LoginPage.LoginAs("admin").WithPassword("pass").Login();
 
-        Assert.assertTrue(ProfilePage.IsAt());
+        Assert.assertTrue(DashBoardPage.IsAt());
     }
 
     @After
