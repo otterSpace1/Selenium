@@ -15,9 +15,9 @@ public class LoginTest {
         Assert.assertTrue(DashBoardPage.IsAt());
     }
 
-    @After
-    public void cleanUp() {
-        Driver.close();
-    }
+//    @After
+//    public void cleanUp() {
+//        Driver.close();
+//    }
 
 }

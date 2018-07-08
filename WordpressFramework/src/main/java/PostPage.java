@@ -4,17 +4,12 @@ import org.openqa.selenium.WebElement;
 public class PostPage {
 
 
-    public static void GoTo() {
-        WebElement postMenuButton = Driver.Instance.findElements(By.className("wp-menu-name")).get(1);
-        postMenuButton.click();
-    }
+    public static String Title() {
 
-    public static PostPageCommand AddNewPost() {
-        WebElement postButton = Driver.Instance.findElement(By.className("page-title-action"));
-        postButton.click();
+        String title = Driver.Instance.findElement(By.className("entry-title")).getText();
+        if (title != null)
+            return title;
+        return "";
 
-        WebElement addNewButton = Driver.Instance.findElement(By.linkText("Add New"));
-        addNewButton.click();
-        return new PostPageCommand();
     }
 }

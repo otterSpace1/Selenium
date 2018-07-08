@@ -1,4 +1,4 @@
-import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,8 +14,12 @@ public class AddPostTest {
         LoginPage.GoTo();
         LoginPage.LoginAs("admin").WithPassword("pass").Login();
 
-        PostPage.GoTo();
-        PostPage.AddNewPost().WithTitle("title").WithBody("body").Publish();
+        NewPostPage.GoTo();
+        NewPostPage.AddNewPost().WithTitle("title").WithBody("body").Publish();
+
+        NewPostPage.GoToNewPost();
+
+        Assert.assertEquals(PostPage.Title(), "title");
     }
 
 //    @After
