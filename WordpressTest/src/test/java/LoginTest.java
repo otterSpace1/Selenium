@@ -1,23 +1,10 @@
 import org.junit.*;
 
-public class LoginTest {
-
-    @Before
-    public void initDriver() {
-        Driver.initialize();
-    }
+public class LoginTest extends WordpressTest {
 
     @Test
-    public void adminUserCanLogIn(){
-        LoginPage.GoTo();
-        LoginPage.LoginAs("admin").WithPassword("pass").Login();
-
+    public void adminUserCanLogIn() {
         Assert.assertTrue(DashBoardPage.IsAt());
     }
-
-//    @After
-//    public void cleanUp() {
-//        Driver.close();
-//    }
 
 }

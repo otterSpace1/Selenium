@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 public class NewPostPageCommand {
 
     private String title;
@@ -21,21 +23,11 @@ public class NewPostPageCommand {
         WebElement title = Driver.Instance.findElement(By.name("post_title"));
         title.sendKeys(this.title);
 
-//        WebElement body = Driver.Instance.findElement(By.id("tinymce"));
-//        body.sendKeys(this.body);
-//
-//        WebElement publishButton = Driver.Instance.findElement(By.id("publish"));
-//        publishButton.click();
-
         Driver.Instance.switchTo().frame("content_ifr");
         Driver.Instance.switchTo().activeElement().sendKeys(this.body);
         Driver.Instance.switchTo().defaultContent();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Driver.Wait(1);
 
         Driver.Instance.findElement(By.id("publish")).click();
     }
